@@ -1,0 +1,30 @@
+</div>
+<script>
+   let sms_html = ``;
+   let tabla = ``;
+let socket = new io();
+   
+    socket.on("produc", data =>{
+        if(data.length > 0){
+        armarTablaInit(data)}
+    })
+
+  function armarTablaInit(data){
+
+    for(const datos of data){
+        console.log(datos.titulo)
+      tabla += `
+              <tr>
+                <th>${datos.titulo}</th>
+                <th>${datos.precio}</th>
+                <th><img src="${datos.url}" alt="" style="height: 50px; width: 50px;"></th>                        
+              </tr>
+              `
+    }
+    filas.innerHTML = tabla
+  }
+
+</script>
+
+</body>
+</html>
